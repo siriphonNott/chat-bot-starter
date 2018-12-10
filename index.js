@@ -34,7 +34,6 @@ app.post('/webhook', (req, res) => {
         let events = req.body.events[0];
         let replyToken = events.replyToken;
         let type = events.type;
-        const message = [];
         console.log('==> events:');
         console.log(events);
         switch (type) {
@@ -51,23 +50,23 @@ app.post('/webhook', (req, res) => {
                 if(checkInQuestion(message)) {
                     console.log('==> Have in question');
                     message = [
-                        {
-                            type: 'text',
-                            text: `สวัสดีครับ NottDev Training ยินดีย้อนรับ\n\nรายการที่จำเป็นสำหรับการเรียน มีดังนี้`
-                        },
-                        {
-                            type: 'text',
-                            text: `Line@: https://at.line.me/th/\nLine Developers: https://developers.line.biz/en/`
+                        // {
+                        //     type: 'text',
+                        //     text: `สวัสดีครับ NottDev Training ยินดีย้อนรับ\n\nรายการที่จำเป็นสำหรับการเรียน มีดังนี้`
+                        // },
+                        // {
+                        //     type: 'text',
+                        //     text: `Line@: https://at.line.me/th/\nLine Developers: https://developers.line.biz/en/`
                         
-                        },
-                        {
-                            type: 'text',
-                            text: `GitHub: https://github.com/`
+                        // },
+                        // {
+                        //     type: 'text',
+                        //     text: `GitHub: https://github.com/`
                         
-                        },
+                        // },
                         {
                             type: 'text',
-                            text: `Heroku: https://www.heroku.com/`
+                            text: "Heroku: https://www.heroku.com/"
                         
                         },
                         {
@@ -77,7 +76,7 @@ app.post('/webhook', (req, res) => {
                         }
                     ];
                 } else {
-                    message= {
+                    message = {
                         type: 'text',
                         text: 'ไม่เข้าใจอ่ะ งง ลองพิมพ์ใหม่สิครับ >.< '
                     }
