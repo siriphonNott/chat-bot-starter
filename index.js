@@ -17,6 +17,7 @@ app.get('/', (req, res) => {
 
 app.post('/webhook', (req, res) => {
     console.log('POST /webhook');
+    console.log(req.body);
     res.send({status: '/webhook : ok'});
 });
 
