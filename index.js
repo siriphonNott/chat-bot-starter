@@ -5,7 +5,7 @@ var app = express();
 const line = require('@line/bot-sdk');
 
 const client = new line.Client({
-  channelAccessToken: 'FDY1JdEITEcFrbjgqdukNhM4/GxENlfiQEjvv8XBiUz829hhLNcOV9l2Elm8zidqhgiHKvogmp/jh1PKh3vLMmn8s5Evf6LChB93r1agMcg0qJh3Q1nb3SVeaJjY0fK7hDuuYjGr6Nb1fgEJdpV1xwdB04t89/1O/w1cDnyilFU='
+  channelAccessToken: 'Z4zN+4RVlu26nezA/xMcyJCZ7sSx79FZ2bD+1tBMS3APfOf0kUudzCuqcBPXdMa9zoocYXkWzloKU1SJTFAuC26PHu2Hbt6tbx2rmJop2cnsxTd1qpiLpZNh1vPUx51xRYJ9ypvC6rQ9HcSEYweIUAdB04t89/1O/w1cDnyilFU='
 });
 
 const message = {
@@ -75,6 +75,10 @@ app.post('/webhook', (req, res) => {
                             stickerId: "1"
                         }
                     ];
+                    message = {
+                        type: 'text',
+                        text: "Heroku: https://www.heroku.com/"
+                    }
                 } else {
                     message = {
                         type: 'text',
