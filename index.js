@@ -72,36 +72,15 @@ app.post('/webhook', (req, res) => {
                         text: 'ไม่เข้าใจอ่ะ งง ลองพิมพ์ใหม่สิครับ >.< '
                     }
                 }
+                client.replyMessage(replyToken, message)
+                .then(() => {console.log('Reply is successfully!');})
+                .catch((err) => {console.log('Error: '+err);});
                 
                 break;
             default:
                 break;
         }
-        const message = [
-            {
-                type: 'text',
-                text: 'สวัสดีครับ NottDev Training ยินดีย้อนรับ'
-            },
-            {
-                type: 'text',
-                text: `รายการที่จำเป็นสำหรับการเรียน มีดังนี้ \n
-                       - เอกสารรายการโค้ด Sticker Line: https://devdocs.line.me/files/sticker_list.pdf
-                       - เอกสารรายการโค้ด Sticker Line: https://devdocs.line.me/files/sticker_list.pdf`
-            },
-            {
-                type: "sticker",
-                packageId: "1",
-                stickerId: "1"
-            }
-        ];
 
-        client.replyMessage(replyToken, message)
-        .then(() => {
-            console.log('Reply is successfully!');
-        })
-        .catch((err) => {
-            console.log('Error: '+err);
-        });
     } else {
         console.log('No data');
     }
