@@ -1,0 +1,25 @@
+{
+  "name": "chat-bot-starter",
+  "version": "1.0.0",
+  "description": "chat bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm install",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/uc-test/chat-bot-starter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/uc-test/chat-bot-starter/issues"
+  },
+  "homepage": "https://gitlab.com/uc-test/chat-bot-starter#README",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  }
+}
