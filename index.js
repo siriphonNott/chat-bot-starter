@@ -52,11 +52,16 @@ app.post('/webhook', (req, res) => {
                     message = [
                         {
                             type: 'text',
-                            text: `สวัสดีครับ NottDev Training ยินดีย้อนรับ\n\nรายการที่จำเป็นสำหรับการเรียน มีดังนี้`
+                            text: `รายการที่จำเป็นสำหรับการเรียน มีดังนี้`
                         },
                         {
                             type: 'text',
-                            text: `Line@: https://at.line.me/th/\nLine Developers: https://developers.line.biz/en/`
+                            text: `Line@: https://at.line.me/th/`
+                        
+                        },
+                        {
+                            type: 'text',
+                            text: `Line Developers: https://developers.line.biz/en/`
                         
                         },
                         {
@@ -68,12 +73,7 @@ app.post('/webhook', (req, res) => {
                             type: 'text',
                             text: "Heroku: https://www.heroku.com/"
                         
-                        },
-                        // {
-                        //     type: "sticker",
-                        //     packageId: "106",
-                        //     stickerId: "1"
-                        // }
+                        }
                     ];
                 } else {
                     message = {
