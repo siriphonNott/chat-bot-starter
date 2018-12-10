@@ -29,16 +29,17 @@ app.get('/', (req, res) => {
 app.post('/webhook', (req, res) => {
     console.log('POST /webhook');
     if(Object.keys(req.body).length !== 0) {
+        console.log('==> req.body:');
         console.log(req.body);
-        
         let events = req.body.events[0];
         let replyToken = events.replyToken;
         let type = events.type;
         const message = [];
-
+        console.log('==> events:');
+        console.log(events);
         switch (type) {
             case 'message':
-                let message = event.message.text;
+                let message = events.message.text;
                 let questionList = ['ขอเอกสาร', 'เอกสาร', 'doc', 'document'];
                 let checkInQuestion = (str) => {
                     return  questionList.find((element)=>{
