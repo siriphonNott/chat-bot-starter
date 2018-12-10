@@ -29,17 +29,64 @@ app.get('/', (req, res) => {
 app.post('/webhook', (req, res) => {
     console.log('POST /webhook');
     if(Object.keys(req.body).length !== 0) {
+        console.log(req.body);
+        
         let events = req.body.events[0];
         let replyToken = events.replyToken;
+        let type = events.type;
+        const message = [];
 
+        switch (type) {
+            case 'message':
+                let message = event.message.text;
+                let questionList = ['ขอเอกสาร', 'เอกสาร', 'doc', 'document'];
+                let checkInQuestion = (str) => {
+                    return  questionList.find((element)=>{
+                        return str.includes(element);
+                    });
+                }
+                 if(checkInQuestion(message)) {
+                    message = [
+                        {
+                            type: 'text',
+                            text: 'สวัสดีครับ NottDev Training ยินดีย้อนรับ'
+                        },
+                        {
+                            type: 'text',
+                            text: `รายการที่จำเป็นสำหรับการเรียน มีดังนี้ \n
+                                   - Line@: https://at.line.me/th/ \n
+                                   - Line Developers: https://developers.line.biz/en/ \n
+                                   - GitHub: https://github.com/ \n
+                                   - Heroku: https://www.heroku.com/ \n
+                                   - Code Sticker Line: https://devdocs.line.me/files/sticker_list.pdf`
+                        },
+                        {
+                            type: "sticker",
+                            packageId: "106",
+                            stickerId: "1"
+                        }
+                    ];
+                } else {
+                    message= {
+                        type: 'text',
+                        text: 'ไม่เข้าใจอ่ะ งง ลองพิมพ์ใหม่สิครับ >.< '
+                    }
+                }
+                
+                break;
+            default:
+                break;
+        }
         const message = [
             {
                 type: 'text',
-                text: 'Hello World!'
+                text: 'สวัสดีครับ NottDev Training ยินดีย้อนรับ'
             },
             {
                 type: 'text',
-                text: 'https://devdocs.line.me/files/sticker_list.pdf'
+                text: `รายการที่จำเป็นสำหรับการเรียน มีดังนี้ \n
+                       - เอกสารรายการโค้ด Sticker Line: https://devdocs.line.me/files/sticker_list.pdf
+                       - เอกสารรายการโค้ด Sticker Line: https://devdocs.line.me/files/sticker_list.pdf`
             },
             {
                 type: "sticker",
