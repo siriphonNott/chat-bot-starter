@@ -50,35 +50,31 @@ app.post('/webhook', (req, res) => {
                 if(checkInQuestion(message)) {
                     console.log('==> Have in question');
                     message = [
-                        // {
-                        //     type: 'text',
-                        //     text: `สวัสดีครับ NottDev Training ยินดีย้อนรับ\n\nรายการที่จำเป็นสำหรับการเรียน มีดังนี้`
-                        // },
-                        // {
-                        //     type: 'text',
-                        //     text: `Line@: https://at.line.me/th/\nLine Developers: https://developers.line.biz/en/`
+                        {
+                            type: 'text',
+                            text: `สวัสดีครับ NottDev Training ยินดีย้อนรับ\n\nรายการที่จำเป็นสำหรับการเรียน มีดังนี้`
+                        },
+                        {
+                            type: 'text',
+                            text: `Line@: https://at.line.me/th/\nLine Developers: https://developers.line.biz/en/`
                         
-                        // },
-                        // {
-                        //     type: 'text',
-                        //     text: `GitHub: https://github.com/`
+                        },
+                        {
+                            type: 'text',
+                            text: `GitHub: https://github.com/`
                         
-                        // },
+                        },
                         {
                             type: 'text',
                             text: "Heroku: https://www.heroku.com/"
                         
                         },
-                        {
-                            type: "sticker",
-                            packageId: "106",
-                            stickerId: "1"
-                        }
+                        // {
+                        //     type: "sticker",
+                        //     packageId: "106",
+                        //     stickerId: "1"
+                        // }
                     ];
-                    message = {
-                        type: 'text',
-                        text: "Heroku: https://www.heroku.com/"
-                    }
                 } else {
                     message = {
                         type: 'text',
