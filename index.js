@@ -46,20 +46,29 @@ app.post('/webhook', (req, res) => {
                         return str.includes(element);
                     });
                 }
-                 if(checkInQuestion(message)) {
+                console.log(`==> checkInQuestion(${message}):`+checkInQuestion(message));
+                
+                if(checkInQuestion(message)) {
+                    console.log('==> Have in question');
                     message = [
                         {
                             type: 'text',
-                            text: 'สวัสดีครับ NottDev Training ยินดีย้อนรับ'
+                            text: `สวัสดีครับ NottDev Training ยินดีย้อนรับ\n\nรายการที่จำเป็นสำหรับการเรียน มีดังนี้`
                         },
                         {
                             type: 'text',
-                            text: `รายการที่จำเป็นสำหรับการเรียน มีดังนี้ \n
-                                   - Line@: https://at.line.me/th/ \n
-                                   - Line Developers: https://developers.line.biz/en/ \n
-                                   - GitHub: https://github.com/ \n
-                                   - Heroku: https://www.heroku.com/ \n
-                                   - Code Sticker Line: https://devdocs.line.me/files/sticker_list.pdf`
+                            text: `Line@: https://at.line.me/th/\nLine Developers: https://developers.line.biz/en/`
+                        
+                        },
+                        {
+                            type: 'text',
+                            text: `GitHub: https://github.com/`
+                        
+                        },
+                        {
+                            type: 'text',
+                            text: `Heroku: https://www.heroku.com/`
+                        
                         },
                         {
                             type: "sticker",
@@ -73,6 +82,9 @@ app.post('/webhook', (req, res) => {
                         text: 'ไม่เข้าใจอ่ะ งง ลองพิมพ์ใหม่สิครับ >.< '
                     }
                 }
+                console.log('==> message reply:');
+                console.log(message);
+                
                 client.replyMessage(replyToken, message)
                 .then(() => {console.log('Reply is successfully!');})
                 .catch((err) => {console.log('Error: '+err);});
