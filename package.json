@@ -17,6 +17,7 @@
   },
   "homepage": "https://gitlab.com/uc-test/chat-bot-starter#README",
   "dependencies": {
+    "@line/bot-sdk": "^6.4.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4"
   }
