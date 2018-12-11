@@ -13,7 +13,7 @@ const message = {
   text: 'Hello World!'
 };
 
-var PORT = 3000;
+var PORT = process.env.PORT || 5000;
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
